@@ -1,9 +1,12 @@
 // https://www.youtube.com/watch?v=w7ejDZ8SWv8
-import Task from "./components/addTask"
 import { useState } from "react"
 import Tasks from "./components/Tasks";
 import Header from "./components/Header";
+import AddTask from "./components/AddTask"
+import Login from "./components/Login";
 const App = () => {
+  const [setName,setNameLogin]=useState(false)
+  const [showAddTask,setShowAddTask]=useState(false)
   const [tasks , setTasks]= useState([
     {
         id: 1,
@@ -24,6 +27,13 @@ const App = () => {
         reminder: false,
     }
 ])
+
+//Add Task
+const addTask=(task)=>{
+  const id= Math.floor(Math.random()*10000)+1
+  const newTask= {id, ...task}
+  setTasks([...tasks,newTask])
+}
 // Delete Task
 const deleteTask= (id)=>{
   setTasks(tasks.filter((task)=>task.id !== id))
@@ -37,7 +47,16 @@ const toggleReminder=(id)=>{
 }
   return (
     <div className="container">
-      <Header title='Tal'/>
+      <Login Name={setName} onName={()=>
+        setNameLogin(!setName)}/>
+      <Header Name={setName} onName={()=>
+        setNameLogin(!setName)}
+        onAdd={()=>
+      setShowAddTask(!showAddTask)}
+      showAdd={showAddTask}
+      />
+
+      {showAddTask &&  <AddTask onAdd={addTask} />}
       {tasks.length>0 ? ( <Tasks tasks={tasks} 
       onDelete={deleteTask} onToggle={toggleReminder}/>) 
       : ('No tasks remaining'

@@ -1,24 +1,27 @@
 import PropTypes from 'prop-types'
 import Button from './Button'
-const Header = (props) => {
-    const onClick= (e)=>{console.log('click')}
+const Header = ({userName,onAdd,showAdd}) => {
     
     return (
+        
         <div>
             <header className='header'>
               <h1>
-                  Hello {props.title} and wellcome!
+                  Hello {userName} and wellcome!
               </h1>  
-                <Button onClick={onClick} 
-                color='green' text="Add"/>
+            
+                <Button 
+                color={showAdd? "red" : 'green'}
+                text={showAdd ? "Close" : 'Add'}
+                    onClick={onAdd} />
             </header>
         </div>
     )
 }
 Header.defaultProps = {
-    title: "NoName" ,
+    userName: "NoName" ,
 }
 Header.prototype = {
-    title: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
 }
 export default Header
