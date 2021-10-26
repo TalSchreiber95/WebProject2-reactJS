@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import Button from './Button'
-const Header = ({userName,onAdd,showAdd}) => {
-    
+const Header = ({Name,onAdd,showAdd}) => {
     return (
         
         <div>
             <header className='header'>
               <h1>
-                  Hello {userName} and wellcome!
+                  Hello {Name} and wellcome!
               </h1>  
             
                 <Button 
@@ -19,7 +18,7 @@ const Header = ({userName,onAdd,showAdd}) => {
     )
 }
 Header.defaultProps = {
-    userName: "NoName" ,
+    Name: "NoName" ,
 }
 Header.prototype = {
     userName: PropTypes.string.isRequired,

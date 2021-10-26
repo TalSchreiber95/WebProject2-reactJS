@@ -1,26 +1,12 @@
 import Button from "./Button"
-import { useState } from "react"
-const Login = ({Name,onName}) => {
-const [userName, setUserName] = useState('')
+const Login = ({onLogin}) => {
     return (
         <div>
-            <Button text={Name?"":"Login"}
+            <Button text={"Login"}
                 color='blue'
-                onClick={onName}
+                className='btn btn-block'
+                onClick={onLogin}
             />
-            <form>
-                <label>UserName: </label>
-                <input type="text"
-                 placeholder="add your username"
-                 value={userName}
-                 onChange={(e)=>
-                 setUserName(e.target.value)}>
-                </input>
-                <Button type="submit" text="add"/>
-                {/* <input type='text'  */}
-                {/* placeholder='Add task' */}
-                {/* // value={text} */}
-            </form>
         </div>
     )
 }
