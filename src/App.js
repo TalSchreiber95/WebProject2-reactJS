@@ -6,6 +6,7 @@ import AddTask from "./components/AddTask"
 import Login from "./components/Login";
 import AddUser from "./components/AddUser";
 import Local from "./components/Local";
+import Logout from "./components/Logout";
 const App = () => {
   const [setName, setNameLogin] = useState("NoName")
   const [Location,setLocation] = useState("none")
@@ -54,7 +55,14 @@ const App = () => {
   return (
     <div className="container">
       <Local local={Location}/>
-      
+      {showLogin && showSetName&&<Logout
+          onLogin={() =>
+            setShowLogin(!showLogin)}
+          onAddUser={() =>
+            setShowNameLogin(!showSetName)}
+          onName={setNameLogin}
+          OnLocation={setLocation}
+      />}
       {!showLogin &&
         <Login
           onLogin={() =>

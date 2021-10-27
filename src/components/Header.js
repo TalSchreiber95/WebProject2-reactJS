@@ -21,6 +21,6 @@ Header.defaultProps = {
     Name: "NoName" ,
 }
 Header.prototype = {
-    userName: PropTypes.string.isRequired,
+    Name: PropTypes.string.isRequired,
 }
 export default Header
