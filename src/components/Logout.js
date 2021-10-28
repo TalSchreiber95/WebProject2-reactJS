@@ -28,9 +28,10 @@ const Logout = ({ onLogout, onAddUser, onName, OnLocation }) => {
                 />
                 <Button
                     text='Logout'
-                    style={{ backgroundColor: "green" }}
                     className='btn btn-block'
                     onClick={onLogout}
+                    
+                
                 />
             </form>
         </div>

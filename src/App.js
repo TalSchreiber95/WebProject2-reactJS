@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import AddUser from "./components/AddUser";
 import Local from "./components/Local";
 import Logout from "./components/Logout";
+import Footer from "./components/Footer";
 const App = () => {
   const [setName, setNameLogin] = useState("NoName")
   const [Location,setLocation] = useState("none")
@@ -54,7 +55,7 @@ const App = () => {
   }
   return (
     <div className="container">
-      <Local local={Location}/>
+      {showLogin && <Local local={Location}/>}
       {showLogin && showSetName&&<Logout
           onLogin={() =>
             setShowLogin(!showLogin)}
@@ -90,6 +91,7 @@ const App = () => {
           onDelete={deleteTask}
           onToggle={toggleReminder} />)
         : ('No tasks remaining')}
+      <Footer/>
     </div>
   );
 }
