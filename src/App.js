@@ -30,7 +30,7 @@ const App = () => {
     const data= await res.json()
     return data
   }
-    //Fetch Task
+  //Fetch Task
     const fetchTask= async(id)=> {
       const res =await fetch(`http://localhost:5000/tasks/${id}`)
       const data= await res.json()
@@ -106,9 +106,9 @@ const App = () => {
         showAdd={showAddTask}
       />
      
-      {/* <Route path='/' exact */}
-       {/* rander={(props)=>( */}
-      {/* <>  */}
+      <Route path='/' exact
+       render={(props)=>(
+      <>
       {showAddTask &&
         <AddTask onAdd={addTask} />}
       {tasks.length > 0
@@ -116,8 +116,8 @@ const App = () => {
           onDelete={deleteTask}
           onToggle={toggleReminder} />)
         : ('No tasks remaining')}
-      {/* </> */}
-      {/* )}/> */}
+       </>
+       )}/>
       <Route path='/about' component={About}/>
       <Footer/>
     </div>
