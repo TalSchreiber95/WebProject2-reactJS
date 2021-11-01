@@ -2,8 +2,10 @@
 const Footer = () => {
     return (
         <footer>
-            Copyright &copy; 20
+            <p>Copyright &copy; Tal</p>
+            <a href="/about">About</a>
         </footer>
+
     )
 }
 

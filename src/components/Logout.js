@@ -14,8 +14,8 @@ const Logout = ({ onLogout, onAddUser, onName, OnLocation }) => {
         <div>
             <form onSubmit={LogoutClick}>
                 <input
-                    value=''
                     hidden
+                    value=''
                     onChange={(e) =>
                         setUserName(e.target.value)}
                 />
@@ -24,14 +24,11 @@ const Logout = ({ onLogout, onAddUser, onName, OnLocation }) => {
                     value='NoneLocation'
                     onChange={(e) =>
                         setlocal(e.target.value)}
-
                 />
                 <Button
                     text='Logout'
                     className='btn btn-block'
                     onClick={onLogout}
-                    
-                
                 />
             </form>
         </div>
